@@ -10,6 +10,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const connection = require("./connection");
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 const unitRoutes = require("./routes/unit");
