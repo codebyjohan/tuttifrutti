@@ -1,17 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const cors = require("cors");
-
-const bodyParser = require("body-parser");
-
-const connection = require("./connection");
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
-
-router.use(cors());
-router.use(express.static("public"));
-const port = 3000;
 
 module.exports = router;
 
