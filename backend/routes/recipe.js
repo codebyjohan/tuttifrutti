@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const connection = require("./../connection");
+
 router.get("/recipe", async (req, res) => {
   let sql = "SELECT * FROM recipe;";
   try {
