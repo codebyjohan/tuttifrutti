@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const connection = require("./../connection");
 
 module.exports = router;
 
@@ -18,3 +19,5 @@ router.get("/ingredients", async (req, res) => {
     });
   }
 });
+
+router.put("/ingredients", async (req, res) => {});
