@@ -10,16 +10,20 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+const connection = require('./connection')
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
+const unitRoutes = require('./routes/unit')
 const amountRoutes = require('./routes/amount')
 const categoryRoutes = require('./routes/category')
 const ingredientsRoutes = require('./routes/ingredients')
 const recipeRoutes = require('./routes/recipe')
-const unitRoutes = require('./routes/unit')
 
-app.use(amountRoutes)
-app.use(categoryRoutes)
-app.use(ingredientsRoutes)
-app.use(recipeRoutes)
-app.use(unitRoutes)
+app.use(
+  unitRoutes,
+  amountRoutes,
+  categoryRoutes,
+  ingredientsRoutes,
+  recipeRoutes
+)
