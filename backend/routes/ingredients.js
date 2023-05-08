@@ -20,4 +20,19 @@ router.get("/ingredients", async (req, res) => {
   }
 });
 
-router.put("/ingredients", async (req, res) => {});
+router.put("/ingredients", async (req, res) => {
+  let sql = "UPDATE ingredients SET ingredientsName=? WHERE ingredientsId=?";
+  let params = [req.body.ingredientsName, req.body.ingredientsId];
+  try {
+    await connection.query(sql, params, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
