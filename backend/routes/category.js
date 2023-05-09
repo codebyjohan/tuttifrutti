@@ -34,25 +34,25 @@ router.get('/category_recipes', async (req, res) => {
   }
 });
 
-// router.get('/category/:id', async (req, res) => {
-//   let sql = 'SELECT * FROM category WHERE categoryId = ?'
-//   try {
-//     await connection.query(
-//       sql,
-//       [req.params.id],
-//       function (error, results, fields) {
-//         if (error) {
-//           if (error) throw error
-//         }
-//         res.json(results)
-//       }
-//     )
-//   } catch (error) {
-//     return res.status(500).json({
-//       error: error.message,
-//     })
-//   }
-// })
+router.get('/category/:id', async (req, res) => {
+  let sql = 'SELECT * FROM category WHERE categoryId = ?'
+  try {
+    await connection.query(
+      sql,
+      [req.params.id],
+      function (error, results, fields) {
+        if (error) {
+          if (error) throw error
+        }
+        res.json(results)
+      }
+    )
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    })
+  }
+})
 
 router.post('/category', async (req, res) => {
   let sql =
