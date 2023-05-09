@@ -59,29 +59,29 @@ router.put("/amount", async (req, res) => {
   }
 });
 
-router.delete("/amount", async (req, res) => {
-  console.log(req.body);
-  let sql = "DELETE FROM amount WHERE amountId = ?";
+// router.delete("/amount", async (req, res) => {
+//   console.log(req.body);
+//   let sql = "DELETE FROM amount WHERE amountId = ?";
 
-  try {
-    await connection.query(
-      sql,
-      [req.body.amountId],
-      function (error, results, fields) {
-        if (error) {
-          if (error) throw error;
-        }
-        return res.status(201).json({
-          success: true,
-          error: "",
-          message: "Nummer i amount är nu raderad!",
-        });
-      }
-    );
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
+//   try {
+//     await connection.query(
+//       sql,
+//       [req.body.amountId],
+//       function (error, results, fields) {
+//         if (error) {
+//           if (error) throw error;
+//         }
+//         return res.status(201).json({
+//           success: true,
+//           error: "",
+//           message: "Nummer i amount är nu raderad!",
+//         });
+//       }
+//     );
+//   } catch (error) {
+//     return res.status(500).json({
+//       success: false,
+//       error: error.message,
+//     });
+//   }
+// });
