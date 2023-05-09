@@ -19,11 +19,15 @@ const amountRoutes = require('./routes/amount')
 const categoryRoutes = require('./routes/category')
 const ingredientsRoutes = require('./routes/ingredients')
 const recipeRoutes = require('./routes/recipe')
+const recipeIngredientsRoutes = require('./routes/recipeIngredients')
+const recipeCategoryRoutes = require('./routes/recipeCategory')
 
 app.use(
   unitRoutes,
   amountRoutes,
   categoryRoutes,
   ingredientsRoutes,
-  recipeRoutes
+  recipeRoutes,
+  recipeIngredientsRoutes,
+  recipeCategoryRoutes
 )
