@@ -19,7 +19,7 @@
     <RouterView />
   </main>
   <footer>
-    <p>AJETI - DREAM TEAM test</p>
+    <p>&copy; AJETI - DREAM TEAM</p>
   </footer>
 </template>
 
@@ -30,6 +30,10 @@
     box-sizing: border-box;
     font-family: 'Inria Serif', serif;
   }
+  main {
+    min-height: 71vh;
+  }
+
   img {
     width: 100px;
     padding-left: 20px;
@@ -55,6 +59,7 @@
   footer {
     display: flex;
     justify-content: flex-end;
+    border-top: rgba(0, 0, 0, 0.3) solid 2px;
     padding: 20px;
   }
 </style>
