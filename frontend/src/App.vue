@@ -23,6 +23,7 @@
   <footer>
     <p>
     AJETI - DREAM TEAM
+    test
     </p>
   </footer>
 </template>
