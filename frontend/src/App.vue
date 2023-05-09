@@ -4,13 +4,13 @@
     <nav>
       <ul>
         <li>
-          <RouterLink to="/">Hem</RouterLink>
+          <RouterLink to="/">HEM</RouterLink>
         </li>
         <li>
-          <RouterLink to="/about">Kategorier</RouterLink>
+          <RouterLink to="/about">KATEGORIER</RouterLink>
         </li>
         <li>
-          <RouterLink to="/recipes">Recept</RouterLink>
+          <RouterLink to="/recipes">RECEPT</RouterLink>
         </li>
       </ul>
     </nav>
@@ -31,24 +31,26 @@
     font-family: 'Inria Serif', serif;
   }
   img {
-    max-width: 100%;
-    width: 50px;
+    width: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
   }
   header {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px;
     border-bottom: rgba(0, 0, 0, 0.5) solid 2px;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
   }
 
   li,
   a {
-    display: inline-block;
     list-style-type: none;
     text-decoration: none;
-    padding: 20px;
-    font-size: large;
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+    color: #000;
   }
   footer {
     display: flex;
