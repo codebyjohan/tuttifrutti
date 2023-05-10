@@ -1,3 +1,6 @@
+
+
+
 <template>
   <header>
     <img src="/assets/Logga.png" alt="Sidans logga" />
@@ -17,6 +20,7 @@
   </header>
   <main>
     <RouterView />
+    <HomeView />
   </main>
   <footer>
     <p>&copy; AJETI - DREAM TEAM</p>
