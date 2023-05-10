@@ -53,7 +53,7 @@ router.get('/category/:id', async (req, res) => {
       error: error.message,
     })
   }
-})
+});
 
 router.post("/category", async (req, res) => {
   let sql = "INSERT INTO category (categoryName) VALUES (?)";
