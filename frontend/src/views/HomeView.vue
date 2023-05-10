@@ -28,7 +28,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-left: 40px
+  padding: 40px
 
 }
 #recipes img {
