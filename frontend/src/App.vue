@@ -1,6 +1,3 @@
-
-
-
 <template>
   <header>
     <img src="/assets/Logga.png" alt="Sidans logga" />
