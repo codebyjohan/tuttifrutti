@@ -10,7 +10,7 @@
           <RouterLink to="/">HEM</RouterLink>
         </li>
         <li>
-          <RouterLink to="/about">KATEGORIER</RouterLink>
+          <RouterLink to="/categories">KATEGORIER</RouterLink>
         </li>
         <li>
           <RouterLink to="/recipes">RECEPT</RouterLink>
