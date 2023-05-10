@@ -5,8 +5,8 @@ module.exports = router;
 
 router.post("/recipeCategory", async (req, res) => {
   let sql =
-    "INSERT INTO recipeCategory (recipeCategoryRecId,recipeCategoryCatId) VALUES (?,?)";
-  let params = [req.body.recipeCategoryRecId, req.body.recipeCategoryCatId];
+    "INSERT INTO recipeCategory (recipeCategoryCatId, recipeCategoryRecId) VALUES (?,?)";
+  let params = [req.body.recipeCategoryCatId, req.body.recipeCategoryRecId];
   try {
     await connection.query(sql, params, function (error, results, fields) {
       if (error) {
