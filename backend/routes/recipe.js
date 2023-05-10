@@ -21,12 +21,12 @@ router.get("/recipe", async (req, res) => {
 
 router.post("/recipe", async (req, res) => {
   let sql =
-    "INSERT INTO recipe (recipeName, recipeInstructions, recipeTime, recipeNotes) VALUES (?, ?, ?, ?)";
+    "INSERT INTO recipe (recipeName, recipeInstructions, recipeTime, recipeImage) VALUES (?, ?, ?, ?)";
   let params = [
     req.body.recipeName,
     req.body.recipeInstructions,
     req.body.recipeTime,
-    req.body.recipeNotes,
+    req.body.recipeImage,
   ];
   try {
     await connection.query(sql, params, function (error, results, fields) {
