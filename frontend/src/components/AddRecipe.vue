@@ -15,7 +15,9 @@
         time: '',
         url: '',
         category: '1',
-        selectedRecId: ''
+        selectedRecId: '',
+        recipeMessage: false,
+        categoryMessage: false
       }
     },
     methods: {
@@ -40,6 +42,12 @@
           .then((response) => {
             this.response = JSON.stringify(response)
           })
+      },
+      submitRecipeMessage() {
+        this.recipeMessage = true
+      },
+      submitCategoryMessage() {
+        this.categoryMessage = true
       }
     }
   }
@@ -62,11 +70,13 @@
       <label for="url">Bild Url:</label>
       <input id="url" type="text" v-model="url" required />
 
-      <button type="submit">Skicka ditt recept!</button>
+      <button type="submit" @click="submitRecipeMessage()">
+        Skicka ditt recept!
+      </button>
     </div>
   </form>
+  <h4 v-if="recipeMessage">Ditt recept har skapats!</h4>
 
-  <br />
   <br />
 
   <form @submit.prevent="connectCategory">
@@ -90,9 +100,12 @@
       <label
         ><input type="radio" v-model="category" value="5" />Vegetariskt</label
       >
-      <button type="submit">Koppa ditt recept!</button>
+      <button type="submit" @click="submitCategoryMessage()">
+        Koppa ditt recept med en kategori!
+      </button>
     </div>
   </form>
+  <h4 v-if="categoryMessage">Du har nu kopplat ditt recept med en kategori!</h4>
 </template>
 
 <style scoped>
