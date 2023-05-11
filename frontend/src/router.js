@@ -5,6 +5,7 @@ import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
 import recipes from './components/AllRecipes.vue'
 import recipe from './components/OneRecipe.vue'
+import AllCategories from './components/AllCategories.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -28,6 +29,10 @@ export default createRouter({
     {
       component: recipe,
       path: '/recipe/:id'
+    },
+    {
+      component: AllCategories,
+      path: '/categories'
     }
   ]
 })

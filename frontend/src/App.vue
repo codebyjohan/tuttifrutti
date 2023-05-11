@@ -7,7 +7,7 @@
           <RouterLink to="/">HEM</RouterLink>
         </li>
         <li>
-          <RouterLink to="/about">KATEGORIER</RouterLink>
+          <RouterLink to="/categories">KATEGORIER</RouterLink>
         </li>
         <li>
           <RouterLink to="/recipes">RECEPT</RouterLink>
@@ -17,6 +17,7 @@
   </header>
   <main>
     <RouterView />
+    <HomeView />
   </main>
   <footer>
     <p>&copy; AJETI - DREAM TEAM</p>
