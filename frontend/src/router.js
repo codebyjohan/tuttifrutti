@@ -29,8 +29,9 @@ export default createRouter({
     },
     {
       component: addRecipe,
-      path: '/addrecipes' }
-      {
+      path: '/addrecipes'
+    },
+    {
       component: recipe,
       path: '/recipe/:id'
     },
