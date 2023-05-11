@@ -62,7 +62,14 @@
       <input id="name" type="text" v-model="name" required />
 
       <label for="instructions">Instruktioner:</label>
-      <input id="instructions" type="text" v-model="instructions" required />
+      <textarea
+        id="instructions"
+        type="text"
+        v-model="instructions"
+        required
+        rows="5"
+        cols="40"
+      />
 
       <label for="time">Tillagningstid:</label>
       <input id="time" type="text" v-model="time" required />
@@ -78,7 +85,7 @@
   <h4 v-if="recipeMessage">Ditt recept har skapats!</h4>
 
   <br />
-
+  <h4>Koppla ditt recept med en kategori</h4>
   <form @submit.prevent="connectCategory">
     <label>Välj ditt recept</label>
     <select v-model="selectedRecId">
@@ -110,9 +117,13 @@
 
 <style scoped>
   h1 {
-    text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 5px;
+  }
+
+  h4 {
+    margin-left: 5px;
   }
   .flex {
     display: flex;
@@ -121,11 +132,22 @@
   }
 
   .flex input[type='text'] {
-    width: 50%;
+    width: 20%;
   }
 
   button {
     width: 20%;
     margin-top: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  textarea {
+    width: 20%;
+    height: 100px;
+  }
+
+  form {
+    margin-left: 5px;
   }
 </style>
