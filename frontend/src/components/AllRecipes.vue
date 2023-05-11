@@ -20,7 +20,9 @@
 
   <div class="recipes">
     <div class="recipe" v-for="recipe in recipes" :key="recipe.id">
-      <img :src="recipe.recipeImage" alt="Maträtt" />
+      <router-link :to="`/recipe/${recipe.recipeId}`">
+        <img :src="recipe.recipeImage" :alt="recipe.recipeName" />
+      </router-link>
       <h2>{{ recipe.recipeName }}</h2>
       <h3>{{ recipe.recipeTime }} Min</h3>
     </div>
