@@ -12,6 +12,9 @@
         <li>
           <RouterLink to="/recipes">RECEPT</RouterLink>
         </li>
+        <li>
+          <RouterLink to="/addrecipes">LÄGG TILL ETT RECEPT</RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
