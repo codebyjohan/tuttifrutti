@@ -1,6 +1,5 @@
 <template>
 <div>
-  <!-- test -->
 <div id="title">
 <!-- <h1>{{ filteredRecipeByID.recipeName }}</h1></div> -->
 <h1>{{ filteredRecipeByID.recipeName }}</h1></div>
