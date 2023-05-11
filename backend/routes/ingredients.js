@@ -20,6 +20,23 @@ router.get("/ingredients", async (req, res) => {
   }
 });
 
+router.get("/hejsan", async (req, res) => {
+  let sql =
+    "SELECT recipe.recipeName, ingredients.ingredientsName, amount.amountNumber, unit.unitName FROM recipe INNER JOIN recipeIngredients ON recipeIngredients.recipeIngredientsRecId = recipe.recipeId INNER JOIN ingredients ON recipeingredients.recipeIngredientsIngId = ingredients.ingredientsId INNER JOIN amount ON recipeIngredients.recipeIngredientsAmoId = amount.amountId INNER JOIN unit ON recipeIngredients.recipeIngredientsUniId = unit.unitId";
+  try {
+    await connection.query(sql, function (error, results, fields) {
+      if (error) {
+        if (error) throw error;
+      }
+      res.json(results);
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
 router.put("/ingredients", async (req, res) => {
   let sql = "UPDATE ingredients SET ingredientsName=? WHERE ingredientsId=?";
   let params = [req.body.ingredientsName, req.body.ingredientsId];
