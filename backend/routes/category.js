@@ -20,7 +20,7 @@ router.get("/category", async (req, res) => {
 
 router.get("/category_recipes", async (req, res) => {
   let sql =
-    "SELECT recipe.recipeName, category.categoryName FROM category INNER JOIN recipeCategory ON recipeCategory.recipeCategoryCatId =  category.categoryId INNER JOIN recipe ON recipeCategory.recipeCategoryRecId = recipe.recipeId;";
+    "SELECT recipe.recipeName, recipe.recipeImage, category.categoryName FROM category INNER JOIN recipeCategory ON recipeCategory.recipeCategoryCatId =  category.categoryId INNER JOIN recipe ON recipeCategory.recipeCategoryRecId = recipe.recipeId;";
   try {
     await connection.query(sql, function (error, results, fields) {
       if (error) {
@@ -35,23 +35,23 @@ router.get("/category_recipes", async (req, res) => {
   }
 });
 
-router.get('/category/:id', async (req, res) => {
-  let sql = 'SELECT * FROM category WHERE categoryId = ?'
+router.get("/category/:id", async (req, res) => {
+  let sql = "SELECT * FROM category WHERE categoryId = ?";
   try {
     await connection.query(
       sql,
       [req.params.id],
       function (error, results, fields) {
         if (error) {
-          if (error) throw error
+          if (error) throw error;
         }
-        res.json(results)
+        res.json(results);
       }
-    )
+    );
   } catch (error) {
     return res.status(500).json({
       error: error.message,
-    })
+    });
   }
 });
 
