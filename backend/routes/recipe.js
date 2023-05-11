@@ -71,11 +71,35 @@ router.put("/recipe", async (req, res) => {
 
 router.delete("/recipe", async (req, res) => {
   console.log(req.body);
-  let sql = "DELETE FROM recipe WHERE recipeId = ?";
+  let sql = "DELETE FROM recipeCategory WHERE recipeCategoryRecId = ?";
 
   try {
     await connection.query(
       sql,
+      [req.body.recipeId],
+      function (error, results, fields) {
+        if (error) {
+          if (error) throw error;
+        }
+        return res.status(201).json({
+          success: true,
+          error: "",
+          message: "Receptet är nu raderat!",
+        });
+      }
+    );
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+
+  let sqlRecipe = "DELETE FROM recipe WHERE recipeId = ?";
+
+  try {
+    await connection.query(
+      sqlRecipe,
       [req.body.recipeId],
       function (error, results, fields) {
         if (error) {
