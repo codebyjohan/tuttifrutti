@@ -2,54 +2,51 @@ const express = require('express')
 const cors = require('cors')
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
-const CommentsModel = require("./models")
-
+const CommentsModel = require('./models')
 
 const app = express()
 const port = 3000
 
 const start = async () => {
   try {
-      await mongoose.connect(
-          "mongodb://127.0.0.1:27017/commentsmongoose"
-      )
+    await mongoose.connect('mongodb://127.0.0.1:27017/commentsmongoose')
   } catch (error) {
-      console.error(error)
-      process.exit(1)
+    console.error(error)
+    process.exit(1)
   }
 }
 start()
 
-app.get("/comments", async (req, res) => {
+app.get('/comments', async (req, res) => {
   try {
-      const allComments = await CommentsModel.find()
-      return res.status(200).json(allComments)
-  }
-  catch (error) {
-      return res.status(500).json({
-          error: error.message
-      })
+    const allComments = await CommentsModel.find()
+    return res.status(200).json(allComments)
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    })
   }
 })
 
-app.post("/comments", async (req, res) => {
+app.post('/comments', async (req, res) => {
   let commentText = req.body.commentText
   let commentUser = req.body.commentUser
   let commentDate = req.body.dateOfComment
 
-
-
   try {
-      const newComment = new CommentsModel({commentText:commentText, commentUser:commentUser, dateOfComment:commentDate})
-      const insertedComment = await newCommment.save()
-      return res.status(201).json(insertedComment)
-  }
-  catch (error) {
-      return res.status(500).json({
-          error: error.message
-      })
+    const newComment = new CommentsModel({
+      commentText: commentText,
+      commentUser: commentUser,
+      dateOfComment: commentDate,
+    })
+    const insertedComment = await newCommment.save()
+    return res.status(201).json(insertedComment)
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    })
   }
 })
 
@@ -117,7 +114,6 @@ app.post("/comments", async (req, res) => {
 //       })
 //   }
 // })
-
 
 app.use(cors())
 app.use(bodyParser.json())
