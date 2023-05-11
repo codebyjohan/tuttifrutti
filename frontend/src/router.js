@@ -7,6 +7,7 @@ import recipes from './components/AllRecipes.vue'
 import addRecipe from './components/AddRecipe.vue'
 import recipe from './components/OneRecipe.vue'
 import AllCategories from './components/AllCategories.vue'
+import Category from './components/EachCategory.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -38,6 +39,10 @@ export default createRouter({
     {
       component: AllCategories,
       path: '/categories'
+    },
+    {
+      component: Category,
+      path: '/:categoryName'
     }
   ]
 })
