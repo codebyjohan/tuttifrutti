@@ -43,6 +43,6 @@ export default createRouter({
     {
       component: Category,
       path: '/categories/:id'
-    }
+    },
   ]
 })
