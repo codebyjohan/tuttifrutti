@@ -4,6 +4,7 @@ import AboutView from './views/AboutView.vue'
 import ContactView from './views/ContactView.vue'
 import HomeView from './views/HomeView.vue'
 import recipes from './components/AllRecipes.vue'
+import addRecipe from './components/AddRecipe.vue'
 import AllCategories from './components/AllCategories.vue'
 
 export default createRouter({
@@ -24,6 +25,10 @@ export default createRouter({
     {
       component: recipes,
       path: '/recipes'
+    },
+    {
+      component: addRecipe,
+      path: '/addrecipes'
     },
     {
       component: AllCategories,
