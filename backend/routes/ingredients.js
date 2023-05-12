@@ -20,9 +20,9 @@ router.get("/ingredients", async (req, res) => {
   }
 });
 
-router.get("/hejsan", async (req, res) => {
+router.get("/recipeIngredients", async (req, res) => {
   let sql =
-    "SELECT recipe.recipeName, ingredients.ingredientsName, amount.amountNumber, unit.unitName FROM recipe INNER JOIN recipeIngredients ON recipeIngredients.recipeIngredientsRecId = recipe.recipeId INNER JOIN ingredients ON recipeingredients.recipeIngredientsIngId = ingredients.ingredientsId INNER JOIN amount ON recipeIngredients.recipeIngredientsAmoId = amount.amountId INNER JOIN unit ON recipeIngredients.recipeIngredientsUniId = unit.unitId";
+    "SELECT recipe.recipeId, recipe.recipeName, ingredients.ingredientsName, amount.amountNumber, unit.unitName FROM recipe INNER JOIN recipeIngredients ON recipeIngredients.recipeIngredientsRecId = recipe.recipeId INNER JOIN ingredients ON recipeingredients.recipeIngredientsIngId = ingredients.ingredientsId INNER JOIN amount ON recipeIngredients.recipeIngredientsAmoId = amount.amountId INNER JOIN unit ON recipeIngredients.recipeIngredientsUniId = unit.unitId";
   try {
     await connection.query(sql, function (error, results, fields) {
       if (error) {
