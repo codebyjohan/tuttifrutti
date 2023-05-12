@@ -23,31 +23,31 @@
         <h2>
           {{ category.categoryName }}
         </h2>
-        <RouterLink to="/recipes">
+        <RouterLink to="/categories/Fisk">
           <img
             v-if="category.categoryName === 'Fisk'"
             src="/assets/Fish.jpg"
             alt="Fisk"
         /></RouterLink>
-        <RouterLink to="/recipes"
+        <RouterLink to="/categories/Kött"
           ><img
             v-if="category.categoryName === 'Kött'"
             src="/assets/Meat.jpg"
             alt="Kött"
         /></RouterLink>
-        <RouterLink to="/recipes"
+        <RouterLink to="/categories/Kyckling"
           ><img
             v-if="category.categoryName === 'Kyckling'"
             src="/assets/Chicken.jpg"
             alt="Kyckling"
         /></RouterLink>
-        <RouterLink to="/recipes"
+        <RouterLink to="/categories/Vegetariskt"
           ><img
             v-if="category.categoryName === 'Vegetariskt'"
             src="/assets/Vegetarian.jpg"
             alt="Vegetariskt"
         /></RouterLink>
-        <RouterLink to="/recipes"
+        <RouterLink to="/categories/Vegan"
           ><img
             v-if="category.categoryName === 'Vegan'"
             src="/assets/Vegan.jpg"
