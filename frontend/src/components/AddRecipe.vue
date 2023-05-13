@@ -90,16 +90,18 @@
   <br />
   <h4>Koppla ditt recept med en kategori</h4>
   <form @submit.prevent="connectCategory">
-    <label>Välj ditt recept</label>
-    <select v-model="selectedRecId">
-      <option
-        v-for="recipe in recipes"
-        :key="recipe.recipeId"
-        :value="recipe.recipeId"
-      >
-        {{ recipe.recipeName }}
-      </option>
-    </select>
+    <div class="flex">
+      <label>Välj ditt recept</label>
+      <select v-model="selectedRecId">
+        <option
+          v-for="recipe in recipes"
+          :key="recipe.recipeId"
+          :value="recipe.recipeId"
+        >
+          {{ recipe.recipeName }}
+        </option>
+      </select>
+    </div>
 
     <div class="flex">
       <label>Välj kategori</label>
@@ -123,14 +125,18 @@
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 5px;
+    text-align: center;
   }
 
   h4 {
     margin-left: 5px;
+    text-align: center;
   }
   .flex {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 25px;
   }
 
