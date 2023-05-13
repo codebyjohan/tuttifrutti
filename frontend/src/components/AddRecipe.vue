@@ -32,6 +32,9 @@
           .then((response) => {
             this.response = JSON.stringify(response)
           })
+        setTimeout(() => {
+          location.reload()
+        }, 1000) // Laddar om sidan efter 1 sekund
       },
       connectCategory() {
         axios

@@ -42,30 +42,33 @@
   </div>
 
   <div id="commentSection">
+    <h3>Lämna en kommentar</h3>
     <form @submit.prevent="submitComment">
       <div class="commentInput">
-        <label>
-          Användarnamn:
-          <input type="text" v-model="commentUser" required />
-        </label>
+        <label> Ditt namn:</label>
+        <input type="text" v-model="commentUser" required />
       </div>
       <div class="commentInput">
-        <label>
-          Skriv en kommentar:
-          <textarea id="textField" v-model="commentText" required>''</textarea>
-        </label>
+        <label> Skriv en kommentar:</label>
+        <textarea id="textField" v-model="commentText" required>''</textarea>
       </div>
       <div class="commentInput">
         <button id="submitBtn" type="submit" @click="getComments()">
-          Submit
+          Skicka kommentar!
         </button>
       </div>
     </form>
   </div>
 
-  <div :key="comment" v-for="comment in comments">
-    <h2>{{ comment.commentUser }} {{ comment.dateOfComment }}</h2>
-    <p>{{ comment.commentText }}</p>
+  <div class="comment-card" :key="comment" v-for="comment in comments">
+    <h3>
+      Namn: {{ comment.commentUser }}
+      <span>{{ comment.dateOfComment.slice(0, 10) }}</span>
+    </h3>
+    <p>
+      {{ comment.commentText }}
+      <button @click="deleteComment(comment._id)">Radera</button>
+    </p>
   </div>
 </template>
 
@@ -110,6 +113,21 @@
           .then((response) => {
             this.response = JSON.stringify(response)
           })
+        setTimeout(() => {
+          location.reload()
+        }, 100) // Laddar om sidan efter 0.1 sekund
+      },
+      deleteComment(id) {
+        axios
+          .delete('http://localhost:3000/comments', {
+            data: { _id: id }
+          })
+          .then((response) => {
+            this.response = JSON.stringify(response)
+          })
+        setTimeout(() => {
+          location.reload()
+        }, 100) // Laddar om sidan efter 0.1 sekund
       },
       getComments() {
         fetch('http://localhost:3000/comments')
@@ -181,17 +199,60 @@
   #recipeIng {
     margin-top: 8px;
     margin-bottom: 10px;
-    width: 290px;
+    width: 390px;
+  }
+
+  #submitBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  #commentSection h3 {
+    text-align: center;
+    margin-top: 10px;
   }
 
   .commentInput {
     display: flex;
-    justify-content: center;
-    margin: 6px;
+    flex-direction: column;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #comment {
     display: flex;
     justify-content: center;
+  }
+
+  .comment-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 8px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .comment-card span {
+    float: right;
+  }
+
+  .comment-card button {
+    background-color: rgb(167, 6, 6);
+    color: #fff;
+    border: 1px solid gray;
+    float: right;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .comment-card h3 {
+    padding-bottom: 5px;
   }
 </style>
