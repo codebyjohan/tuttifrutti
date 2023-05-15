@@ -38,12 +38,12 @@
       v-for="recipes in OneCategory"
       :key="recipes.recipeCategoryId"
     >
-      <!-- <router-link :to="`/recipe/${recipe.recipeId}`"> -->
-      <img :src="recipes.recipeImage" alt="Bild på maträtt" />
-      <h2>
-        {{ recipes.recipeName }}
-      </h2>
-      <!-- </router-link> -->
+
+    <router-link :to="`/recipe/${recipes.recipeId}`"> 
+      <img :src="recipes.recipeImage" :alt="recipes.recipeName" />
+      <h2>{{ recipes.recipeName }}</h2>
+     </router-link>
+     
     </div>
   </div>
 </template>
@@ -52,6 +52,7 @@
   h1,
   h2 {
     text-align: center;
+    padding: 10px;
   }
 
   .recipeContainer {
@@ -68,8 +69,9 @@
   }
 
   img {
-    height: 25vh;
-    padding: 5px;
-    width: 35vw;
+    height: 250px;
+    padding: 15px;
+    width: 350px;
+    margin-top: 20px;
   }
 </style>
