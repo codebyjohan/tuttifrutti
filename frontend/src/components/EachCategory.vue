@@ -43,7 +43,7 @@
       <img :src="recipes.recipeImage" :alt="recipes.recipeName" />
       <h2>{{ recipes.recipeName }}</h2>
      </router-link>
-     
+
     </div>
   </div>
 </template>
