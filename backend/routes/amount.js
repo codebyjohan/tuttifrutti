@@ -48,7 +48,7 @@ router.put("/amount", async (req, res) => {
       }
       return res.status(201).json({
         success: true,
-        error: "",
+        error: "PUT gick ej igenom!",
       });
     });
   } catch (error) {
